@@ -8,6 +8,11 @@ on:
     branches:
       - master
 
+
+env:
+  AZURE_WEBAPP_PACKAGE_PATH: "dist" # set this to the path to your web app project, defaults to the repository root
+
+
 jobs:
   build-and-deploy:
     runs-on: windows-latest
