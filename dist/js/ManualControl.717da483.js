@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["ManualControl"],{"7dde":function(n,t,e){"use strict";e.r(t);var a=function(){var n=this,t=n.$createElement;n._self._c;return n._m(0)},l=[function(){var n=this,t=n.$createElement,e=n._self._c||t;return e("div",{staticClass:"ManualControl"},[e("h1",[n._v("This is the ManualControl page")])])}],r=e("2877"),s={},o=Object(r["a"])(s,a,l,!1,null,null,null);t["default"]=o.exports}}]);
-//# sourceMappingURL=ManualControl.717da483.js.map
