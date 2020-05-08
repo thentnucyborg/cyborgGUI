@@ -2,6 +2,9 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
 name: Build and deploy Node.js app to Azure Web App - cyborgvueapp
+env:
+  AZURE_WEBAPP_NAME: "cyborgvueapp" # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: "dist" # set this to the path to your web app project, defaults to the repository root
 
 on:
   push:
