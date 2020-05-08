@@ -25,7 +25,7 @@ export default {
     return {
       previous_state: "-",
       event: "-",
-      current_state: "----"
+      current_state: "-"
     };
   },
   created() {
@@ -85,7 +85,7 @@ export default {
 
     this.behaviourStateTopic.subscribe(function(msg) {
       if (msg.data == true) {
-        console.log("got data4" + String(msg));
+        console.log("got data4 behaviourstate" + String(msg));
         // document.getElementById("txtBehaviourState").innerHTML = "ON";
       } else {
         console.log("got data4" + String(msg));
