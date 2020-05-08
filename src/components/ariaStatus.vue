@@ -25,7 +25,7 @@ export default {
     return {
       previous_state: "-",
       event: "-",
-      current_state: "-"
+      current_state: "----"
     };
   },
   created() {
