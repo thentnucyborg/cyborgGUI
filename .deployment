@@ -1,2 +1,3 @@
 [config]
 project = dist
+scm_repository_path = dist
