@@ -4,21 +4,24 @@
       <b-row align-h="center" class="pt-3">
         <b-col class="box mr-2">
           <b-row>
-            <b-col class="m-2 box2">
+            <b-col class="m-2 box2 d-flex align-items-center justify-content-center">
               <modeButtons></modeButtons>
             </b-col>
-            <b-col class="m-2 box2">
-              <ariaStatus></ariaStatus>
+            <b-col class="m-2 box2 d-flex align-items-center justify-content-center">
+              <SMACHStateStatus></SMACHStateStatus>
             </b-col>
           </b-row>
           <b-row>
-            <b-col></b-col>
+            <b-col class="m-2 box2">
+              <commandForm></commandForm>
+            </b-col>
+            <b-col class="m-2 box2 d-flex align-items-center justify-content-center">
+              <SMACHStateStatus></SMACHStateStatus>
+            </b-col>
           </b-row>
         </b-col>
         <b-col class="box ml-2">
-          <div>
-            <debugConsole></debugConsole>
-         </div>
+          <debugConsole></debugConsole>
         </b-col>
       </b-row>
     </b-container>
@@ -27,22 +30,25 @@
   </div>
 </template>
 <script>
-
 import modeButtons from "../components/modeButtons";
-import ariaStatus from "../components/ariaStatus";
+import SMACHStateStatus from "../components/SMACHStateStatus";
 import debugConsole from "../components/debugConsole";
+import commandForm from "../components/commandForm";
+// import PADStatus from "../components/PADStatus";
 export default {
   name: "Home",
   components: {
     modeButtons,
     debugConsole,
-    ariaStatus
-    // HelloWorld
+    SMACHStateStatus,
+    commandForm,
+    // PADStatus
   }
 };
 </script>
 <style scoped>
 .intro-lead-in {
+  text-align: center;
   font-size: 1.5rem;
   font-style: italic;
   font-family: "Droid Serif";

@@ -2,7 +2,8 @@ module.exports = {
     runtimeCompiler: true, 
     devServer: {
         watchOptions: {
-            poll: true
+            aggregateTimeout: 300,
+            poll: 1000
         }   
     }       
 };

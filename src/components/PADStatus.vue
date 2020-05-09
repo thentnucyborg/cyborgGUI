@@ -1,5 +1,5 @@
 <template>
-  <div id="ariaStatus">
+  <div id="PADStatus">
     <b-row align-h="center">
       <b-card class="m-2" header="Current state">
         <b-card-text>{{ current_state }}</b-card-text>
@@ -37,13 +37,10 @@ export default {
     });
 
     this.systemStateTopic.subscribe(function(msg) {
-      console.log("got data1" + String(msg.event));
-      self.previus_state = msg.event;
+      console.log("got data1" + String(msg));
+      self.previous_state = msg.from_system_state;
       self.event = msg.event;
       self.current_state = msg.to_system_state;
-      // document.getElementById("txtSMACHEvent").innerHTML = msg.event;
-      // document.getElementById("txtPrevSMACHState").innerHTML = msg.from_system_state;
-      // document.getElementById("txtCurrSMACHState").innerHTML = msg.to_system_state;
     });
 
     this.emotionalStateTopic = new ROSLIB.Topic({
@@ -102,4 +99,15 @@ export default {
 </script>
 
 <style>
+.card {
+  font-size: 0.95rem;
+  width: 116px;
+  height: 84px;
+}
+.card-header {
+  padding: 0.3rem !important;
+}
+.card-body {
+  padding: 0.75rem !important;
+}
 </style>

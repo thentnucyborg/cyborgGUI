@@ -1,6 +1,6 @@
 <template>
   <div id="debugConsole">
-    <b-form-group>
+    <b-form-group class="txtcenter">
       <label>Debug Output</label>
       <b-form-textarea
         class="form-control"
