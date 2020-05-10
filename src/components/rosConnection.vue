@@ -1,4 +1,5 @@
 <template>
+<div id="rosConnection">
   <b-navbar-brand>
     ROS connection:
     <span
@@ -35,6 +36,7 @@
       <span class="fas fa-redo-alt"></span>
     </b-button>
   </b-navbar-brand>
+</div>
 </template>
 <script>
 import Vue from "vue";
@@ -46,7 +48,7 @@ var ros = new ROSLIB.Ros({
 });
 Object.defineProperty(Vue.prototype, "$ros", { value: ros });
 export default {
-  name: "rosStatus",
+  name: "rosConnection",
   data() {
     return {
       ros: this.$ros,

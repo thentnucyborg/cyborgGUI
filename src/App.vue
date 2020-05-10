@@ -3,7 +3,7 @@
     <div id="nav">
       <b-navbar class="p-0" toggleable="lg" type="light">
         <b-col cols="4">
-          <rosStatus class="float-left"></rosStatus>
+          <rosConnection class="float-left"></rosConnection>
         </b-col>
         <b-col cols="4">
           <b-collapse id="nav-collapse" is-nav>
@@ -60,11 +60,11 @@
 }
 </style>
 <script>
-import rosStatus from "./components/rosStatus";
+import rosConnection from "./components/rosConnection";
 
 export default {
   components: {
-    rosStatus
+    rosConnection
   }
 };
 </script>

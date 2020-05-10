@@ -1,5 +1,5 @@
 <template>
-  <div id="PADStatus">
+  <div id="SMACHStateStatus" class="txtcenter">
     <b-row align-h="center">
       <b-card class="m-2" header="Current state">
         <b-card-text>{{ current_state }}</b-card-text>
@@ -20,7 +20,7 @@
 import ROSLIB from "roslib";
 
 export default {
-  name: "modeButtons",
+  name: "SMACHStateStatus",
   data() {
     return {
       previous_state: "-",
@@ -37,11 +37,11 @@ export default {
     });
 
     this.systemStateTopic.subscribe(function(msg) {
-      console.log("got data1" + String(msg));
+      console.log("got data1" + String(msg.event));
       self.previous_state = msg.from_system_state;
       self.event = msg.event;
       self.current_state = msg.to_system_state;
-    });
+});
 
     this.emotionalStateTopic = new ROSLIB.Topic({
       ros: this.$ros,
@@ -51,11 +51,6 @@ export default {
 
     this.emotionalStateTopic.subscribe(function(msg) {
       console.log("got data2" + String(msg));
-      // document.getElementById("txtPrevEmotionalState").innerHTML = msg.from_emotional_state;
-      // document.getElementById("txtCurrEmotionalState").innerHTML = msg.to_emotional_state;
-      // document.getElementById("txtPleasure").innerHTML = msg.current_pleasure.toFixed(4);
-      // document.getElementById("txtArousal").innerHTML = msg.current_arousal.toFixed(4);
-      // document.getElementById("txtDominance").innerHTML = msg.current_dominance.toFixed(4);
     });
 
     this.motorStateTopic = new ROSLIB.Topic({

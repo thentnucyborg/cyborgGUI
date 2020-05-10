@@ -13,10 +13,10 @@
           </b-row>
           <b-row>
             <b-col class="m-2 box2">
-              <commandForm></commandForm>
+              <commandTool></commandTool>
             </b-col>
             <b-col class="m-2 box2 d-flex align-items-center justify-content-center">
-              <SMACHStateStatus></SMACHStateStatus>
+              <transitions></transitions>
             </b-col>
           </b-row>
         </b-col>
@@ -33,16 +33,16 @@
 import modeButtons from "../components/modeButtons";
 import SMACHStateStatus from "../components/SMACHStateStatus";
 import debugConsole from "../components/debugConsole";
-import commandForm from "../components/commandForm";
-// import PADStatus from "../components/PADStatus";
+import commandTool from "../components/commandTool";
+import transitions from "../components/transitions";
 export default {
   name: "Home",
   components: {
     modeButtons,
     debugConsole,
     SMACHStateStatus,
-    commandForm,
-    // PADStatus
+    commandTool,
+    transitions
   }
 };
 </script>
@@ -90,6 +90,6 @@ export default {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .box2:hover {
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.4);
 }
 </style>
