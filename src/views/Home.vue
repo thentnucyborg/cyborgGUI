@@ -15,8 +15,10 @@
             <b-col class="m-2 box2">
               <commandTool></commandTool>
             </b-col>
-            <b-col class="m-2 box2 d-flex align-items-center justify-content-center">
-              <transitions></transitions>
+            <b-col class="m-2 box2 d-flex flex-column align-items-center justify-content-center">
+                <emotionCards></emotionCards>
+                <ariaCards></ariaCards>
+                <etcCards></etcCards>
             </b-col>
           </b-row>
         </b-col>
@@ -34,7 +36,9 @@ import modeButtons from "../components/modeButtons";
 import SMACHStateStatus from "../components/SMACHStateStatus";
 import debugConsole from "../components/debugConsole";
 import commandTool from "../components/commandTool";
-import transitions from "../components/transitions";
+import emotionCards from "../components/emotionCards";
+import ariaCards from "../components/ariaCards";
+import etcCards from "../components/etcCards";
 export default {
   name: "Home",
   components: {
@@ -42,7 +46,9 @@ export default {
     debugConsole,
     SMACHStateStatus,
     commandTool,
-    transitions
+    emotionCards,
+    ariaCards,
+    etcCards
   }
 };
 </script>

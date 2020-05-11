@@ -1,6 +1,9 @@
 <template>
   <div id="SMACHStateStatus" class="txtcenter">
     <b-row align-h="center">
+      <b-card class="m-2" header="Selected mode">
+        <b-card-text>{{ current_mode }}</b-card-text>
+      </b-card>
       <b-card class="m-2" header="Current state">
         <b-card-text>{{ current_state }}</b-card-text>
       </b-card>
@@ -23,6 +26,7 @@ export default {
   name: "SMACHStateStatus",
   data() {
     return {
+      current_mode: "-",
       previous_state: "-",
       event: "-",
       current_state: "-"
@@ -43,37 +47,6 @@ export default {
       self.current_state = msg.to_system_state;
 });
 
-    this.emotionalStateTopic = new ROSLIB.Topic({
-      ros: this.$ros,
-      name: "/cyborg_controller/emotional_state",
-      messageType: "cyborg_controller/EmotionalState"
-    });
-
-    this.emotionalStateTopic.subscribe(function(msg) {
-      console.log("got data2" + String(msg));
-      // document.getElementById("txtPrevEmotionalState").innerHTML = msg.from_emotional_state;
-      // document.getElementById("txtCurrEmotionalState").innerHTML = msg.to_emotional_state;
-      // document.getElementById("txtPleasure").innerHTML = msg.current_pleasure.toFixed(4);
-      // document.getElementById("txtArousal").innerHTML = msg.current_arousal.toFixed(4);
-      // document.getElementById("txtDominance").innerHTML = msg.current_dominance.toFixed(4);
-    });
-
-    this.motorStateTopic = new ROSLIB.Topic({
-      ros: this.$ros,
-      name: "/RosAria/motors_state",
-      messageType: "std_msgs/Bool"
-    });
-
-    this.motorStateTopic.subscribe(function(msg) {
-      if (msg.data == true) {
-        console.log("got data3" + String(msg));
-        // document.getElementById("txtMotorsState").innerHTML = "ON";
-      } else {
-        console.log("got data3" + String(msg));
-        // document.getElementById("txtMotorsState").innerHTML = "OFF";
-      }
-    });
-
     this.behaviourStateTopic = new ROSLIB.Topic({
       ros: this.$ros,
       name: "/cyborg_commander/robot_mode",
@@ -81,19 +54,26 @@ export default {
     });
 
     this.behaviourStateTopic.subscribe(function(msg) {
-      if (msg.data == true) {
+      if (msg.data == "behaviour") {
+        self.current_mode = "behaviour";
         console.log("got data4 behaviourstate" + String(msg));
-        // document.getElementById("txtBehaviourState").innerHTML = "ON";
-      } else {
+      } else if (msg.data == "demo") {
+        self.current_mode = "demo";
         console.log("got data4" + String(msg));
-        // document.getElementById("txtBehaviourState").innerHTML = "OFF";
+      }else if (msg.data == "manual control") {
+        self.current_mode = "manual control";
+        console.log("got data4" + String(msg));
+      }else if (msg.data == "stop") {
+        self.current_mode = "stopped";
+        console.log("got data4" + String(msg));
+      }else{
+        self.current_mode = "-";
       }
     });
   },
   destroyed() {
-    this.motorStateTopic.unsubscribe();
-    this.behaviourStateTopic.unsubscribe();
     this.systemStateTopic.unsubscribe();
+    this.behaviourStateTopic.unsubscribe();
   }
 };
 </script>
@@ -102,7 +82,7 @@ export default {
 .card {
   font-size: 0.95rem;
   width: 116px;
-  height: 84px;
+  height: fit-content;
 }
 .card-header {
   padding: 0.3rem !important;

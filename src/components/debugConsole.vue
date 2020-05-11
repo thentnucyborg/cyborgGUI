@@ -5,7 +5,7 @@
       <b-form-textarea
         class="form-control"
         id="formControlTextarea1"
-        rows="16"
+        rows="26"
         spellcheck="false"
         readonly
         disabled
