@@ -3,6 +3,7 @@
     <b-form-group class="txtcenter">
       <label>Debug Output</label>
       <b-form-textarea
+        contenteditable="true"
         class="form-control"
         id="formControlTextarea1"
         rows="26"
@@ -26,18 +27,25 @@ export default {
       messageType: "rosgraph_msgs/Log"
     });
     this.rosOutTopic.subscribe(function(msg) {
-      console.log("got data6" + String(msg));
+      console.log("got debug line");
       var textArea = document.getElementById("formControlTextarea1");
-      textArea.innerHTML +=
-        msg.msg + "\n";
-    textArea.scrollTop = textArea.scrollHeight;
+      if (msg.level == 2) {
+        textArea.innerHTML += "[INFO] : " + msg.msg + "\n";
+      } else if (msg.level == 4) {
+        textArea.innerHTML += "[WARN] : " + msg.msg + "\n";
+      } else if (msg.level == 8) {
+        textArea.innerHTML += "[ERROR] : " + msg.msg + "\n";
+      } else if (msg.level == 16) {
+        textArea.innerHTML += "[FATAL] : " + msg.msg + "\n";
+      } else {
+        textArea.innerHTML += msg.msg + "\n";
+      }
+      textArea.scrollTop = textArea.scrollHeight;
     });
   },
-  mounted(){
-
-  },
-  destroyed(){
-      this.rosOutTopic.unsubscribe();
+  mounted() {},
+  destroyed() {
+    this.rosOutTopic.unsubscribe();
   }
 };
 </script>

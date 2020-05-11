@@ -1,6 +1,6 @@
 <template>
   <div id="modeButtons">
-    <b-row>
+    <b-row align-h="center">
         <b-button
           class="lgButton m-2"
           variant="success"
