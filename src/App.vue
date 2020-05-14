@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <div id="nav">
-      <b-navbar class="p-0" toggleable="lg" type="light">
+      <b-navbar class="p-0" toggleable="md" type="light">
         <b-col cols="4">
           <rosConnection class="float-left"></rosConnection>
         </b-col>
         <b-col cols="4">
           <b-collapse id="nav-collapse" is-nav>
-            <b-navbar-nav class="mx-auto">
+            <b-navbar-nav class="mx-auto txtcenter">
               <b-nav-item style="font-size:large" to="/">Home</b-nav-item>
               <b-nav-text style="font-size:large">|</b-nav-text>
               <b-nav-item style="font-size:large" to="/Map">Map</b-nav-item>
@@ -60,6 +60,13 @@
 }
 </style>
 <script>
+import Vue from "vue";
+import ROSLIB from "roslib";
+var ros = new ROSLIB.Ros({
+  url: "ws://localhost:9090"
+});
+Object.defineProperty(Vue.prototype, "$ros", { value: ros });
+
 import rosConnection from "./components/rosConnection";
 
 export default {

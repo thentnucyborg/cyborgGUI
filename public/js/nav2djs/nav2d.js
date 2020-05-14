@@ -88,6 +88,7 @@ NAV2D.ImageMapClientNav = function(options) {
  *   * rootObject (optional) - the root object to add the click listeners to and render robot markers to
  *   * withOrientation (optional) - if the Navigator should consider the robot orientation (default: false)
  *   * image (optional) - if the Navigator should render image (default: false)
+ *   * viewer (optional) - canvas element
  */
 NAV2D.Navigator = function(options) {
   var that = this;
@@ -97,6 +98,7 @@ NAV2D.Navigator = function(options) {
   var actionName = options.actionName || "move_base_msgs/MoveBaseAction";
   var withOrientation = options.withOrientation || false;
   var use_image = options.image;
+  var viewer = options.viewer;
   this.rootObject = options.rootObject || new createjs.Container();
 
   // setup the actionlib client
@@ -222,6 +224,30 @@ NAV2D.Navigator = function(options) {
       sendGoal(pose);
     });
   } else {
+    var staticMap;
+    var mapWidth;
+    var widthRatio;
+    var heightRatio;
+    var canvasWidth = viewer.width;
+    var canvasHeight = viewer.height;
+
+    var mapTopic = new ROSLIB.Topic({
+      ros: ros,
+      name: "/map",
+      messageType: "nav_msgs/OccupancyGrid"
+    });
+
+    mapTopic.subscribe(function(msg) {
+      mapTopic.unsubscribe();
+      /* eslint-disable no-unused-vars */
+      staticMap = msg.data;
+      mapWidth = msg.info.width;
+      widthRatio = msg.info.width / canvasWidth;
+      heightRatio = msg.info.height / canvasHeight;
+      /* eslint-enable no-unused-vars */
+    });
+
+
     // withOrientation === true
     // setup a click-and-point listener (with orientation)
     var position = null;
@@ -232,7 +258,7 @@ NAV2D.Navigator = function(options) {
     var mouseDown = false;
     var xDelta = 0;
     var yDelta = 0;
-
+    var mapClick = false;
     var mouseEventHandler = function(event, mouseState) {
       if (mouseState === "down") {
         var x;
@@ -395,7 +421,8 @@ NAV2D.OccupancyGridClientNav = function(options) {
       actionName: that.actionName,
       rootObject: that.rootObject,
       withOrientation: that.withOrientation,
-      image: image
+      image: image,
+      viewer: that.viewer
     });
 
     // scale the viewer to fit the map

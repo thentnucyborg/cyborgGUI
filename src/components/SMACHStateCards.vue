@@ -1,5 +1,5 @@
 <template>
-  <div id="SMACHStateStatus" class="txtcenter">
+  <div id="SMACHStateCards" class="txtcenter">
     <b-row align-h="center">
       <b-card class="m-2" header="Selected mode">
         <b-card-text>{{ current_mode }}</b-card-text>
@@ -23,7 +23,7 @@
 import ROSLIB from "roslib";
 
 export default {
-  name: "SMACHStateStatus",
+  name: "SMACHStateCards",
   data() {
     return {
       current_mode: "-",
@@ -41,7 +41,7 @@ export default {
     });
 
     this.systemStateTopic.subscribe(function(msg) {
-      console.log("got data1" + String(msg.event));
+      // console.log("got data1" + String(msg.event));
       self.previous_state = msg.from_system_state;
       self.event = msg.event;
       self.current_state = msg.to_system_state;
@@ -56,16 +56,16 @@ export default {
     this.behaviourStateTopic.subscribe(function(msg) {
       if (msg.data == "behaviour") {
         self.current_mode = "behaviour";
-        console.log("got data4 behaviourstate" + String(msg));
+        // console.log("got data4 behaviourstate" + String(msg));
       } else if (msg.data == "demo") {
         self.current_mode = "demo";
-        console.log("got data4" + String(msg));
+        // console.log("got data4" + String(msg));
       }else if (msg.data == "manual control") {
         self.current_mode = "manual control";
-        console.log("got data4" + String(msg));
+        // console.log("got data4" + String(msg));
       }else if (msg.data == "stop") {
         self.current_mode = "stopped";
-        console.log("got data4" + String(msg));
+        // console.log("got data4" + String(msg));
       }else{
         self.current_mode = "-";
       }

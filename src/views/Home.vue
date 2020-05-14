@@ -8,7 +8,7 @@
               <modeButtons></modeButtons>
             </b-col>
             <b-col class="m-2 box2 d-flex align-items-center justify-content-center">
-              <SMACHStateStatus></SMACHStateStatus>
+              <SMACHStateCards></SMACHStateCards>
             </b-col>
           </b-row>
           <b-row>
@@ -33,7 +33,7 @@
 </template>
 <script>
 import modeButtons from "../components/modeButtons";
-import SMACHStateStatus from "../components/SMACHStateStatus";
+import SMACHStateCards from "../components/SMACHStateCards";
 import debugConsole from "../components/debugConsole";
 import commandTool from "../components/commandTool";
 import emotionCards from "../components/emotionCards";
@@ -44,7 +44,7 @@ export default {
   components: {
     modeButtons,
     debugConsole,
-    SMACHStateStatus,
+    SMACHStateCards,
     commandTool,
     emotionCards,
     ariaCards,

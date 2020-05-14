@@ -4,8 +4,8 @@
       <b-card class="my-2 mx-1" header="Text-to-speech">
         <b-card-text>{{ text_to_speech }}</b-card-text>
       </b-card>
-      <b-card class="my-2 mx-1" header="cmd location">
-        <b-card-text>{{ command_location }}</b-card-text>
+      <b-card class="my-2 mx-1" header="emotionsystem">
+        <b-card-text>{{ emotionsystem }}</b-card-text>
       </b-card>
     </b-row>
   </div>
@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       text_to_speech: "-",
-      command_location: "-"
+      emotionsystem: "-"
     };
   },
   created() {
@@ -34,18 +34,19 @@ export default {
       self.text_to_speech = msg.data;
     });
 
-    this.commandLocationTopic = new ROSLIB.Topic({
+    this.emotionswitchTopic = new ROSLIB.Topic({
       ros: this.$ros,
-      name: "/cyborg_behavior/command_location",
+      name: "/cyborg_controller/emotional_controller",
       messageType: "std_msgs/String"
     });
-    this.commandLocationTopic.subscribe(function(msg) {
-      self.command_location = msg.data;
+    this.emotionswitchTopic.subscribe(function(msg) {
+      // console.log(msg.data);
+      self.emotionsystem = msg.data.toUpperCase();
     });
   },
   destroyed() {
     this.textToSpeechTopic.unsubscribe();
-    this.commandLocationTopic.unsubscribe();
+    this.emotionswitchTopic.unsubscribe();
   }
 };
 </script>

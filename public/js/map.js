@@ -5,8 +5,12 @@ var mapWidth;
 var widthRatio;
 var heightRatio;
 var mapClick = false;
+var ros;
 
 function initMap() {
+  ros = new ROSLIB.Ros({
+    url: 'ws://localhost:9090'
+  });
   // Create the main viewer.
   var viewer = new ROS2D.Viewer({
     divID: "map",

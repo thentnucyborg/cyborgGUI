@@ -27,7 +27,7 @@ export default {
       messageType: "rosgraph_msgs/Log"
     });
     this.rosOutTopic.subscribe(function(msg) {
-      console.log("got debug line");
+      // console.log("got debug line");
       var textArea = document.getElementById("formControlTextarea1");
       if (msg.level == 2) {
         textArea.innerHTML += "[INFO] : " + msg.msg + "\n";

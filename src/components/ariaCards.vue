@@ -42,11 +42,11 @@ export default {
     });
     this.motorStateTopic.subscribe(function(msg) {
       if (msg.data == true) {
-        console.log("got data3" + String(msg));
+        // console.log("got data3" + String(msg));
         self.motors_state = "ON";
       } else {
         self.motors_state = "ON";
-        console.log("got data3" + String(msg));
+        // console.log("got data3" + String(msg));
       }
     });
 

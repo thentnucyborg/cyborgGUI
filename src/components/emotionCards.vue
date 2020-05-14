@@ -45,7 +45,7 @@ export default {
       self.current_pleasure = msg.current_pleasure.toFixed(4);
       self.current_arousal = msg.current_arousal.toFixed(4);
       self.current_dominance = msg.current_dominance.toFixed(4);
-      console.log("got data2" + String(msg));
+      // console.log("got data2" + String(msg));
     });
   },
   destroyed() {
