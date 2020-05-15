@@ -75,6 +75,9 @@ export default {
       self.rosConOK = false;
       self.rosConLoading = false;
     });
+  },
+  beforeDestroy(){
+    this.$ros.close();
   }
 };
 </script>

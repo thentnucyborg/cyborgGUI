@@ -141,7 +141,6 @@ NAV2D.Navigator = function(options) {
     goalMarker.scaleX = 1.0 / stage.scaleX;
     goalMarker.scaleY = 1.0 / stage.scaleY;
     that.rootObject.addChild(goalMarker);
-
     path = new ROSLIB.Topic({
       ros: ros,
       name: "/move_base/NavfnROS/plan",
@@ -167,6 +166,27 @@ NAV2D.Navigator = function(options) {
       that.rootObject.removeChild(targetPath);
     });
   }
+
+/**
+   * Initialize a pose in amcl with the given pose.
+   *
+   * @param pose - the initial pose
+   */
+  function sendPose(pose) {
+    // create a poseTopic
+    var poseTopic = new ROSLIB.Topic({
+      ros: ros,
+      name: "/initialpose",
+      messageType: "geometry_msgs/PoseWithCovarianceStamped"
+    });
+    var poseVal = new ROSLIB.Message({
+      pose: {pose: pose}
+    });
+    poseTopic.publish(poseVal);
+  }
+
+
+
 
   // get a handle to the stage
   var stage;
@@ -353,11 +373,15 @@ NAV2D.Navigator = function(options) {
           position: positionVec3,
           orientation: orientation
         });
-        // send the goal
-        sendGoal(pose);
+        if (document.getElementById("poseToggle").innerHTML == "true") {
+          sendPose(pose);
+        }else{
+          // send the goal
+          sendGoal(pose);
+        }
       }
     };
-
+    console.log(this.rootObject.toggle);
     this.rootObject.addEventListener("stagemousedown", function(event) {
       mouseEventHandler(event, "down", mapClick);
     });
