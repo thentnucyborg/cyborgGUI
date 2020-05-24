@@ -222,7 +222,7 @@ export default {
       for (var key in dict) {
         // check if the property/key is defined in the object itself, not in parent
         if (key in dict) {
-          textArea.innerHTML += key + " : " + dict[key] + "\n";
+          textArea.innerHTML += key + " → " + dict[key] + "\n";
         }
       }
     });

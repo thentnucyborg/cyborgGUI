@@ -23,12 +23,11 @@
           </b-row>
         </b-col>
         <b-col class="box ml-2">
-          <debugConsole></debugConsole>
+          <debugConsole numRows="26"></debugConsole>
         </b-col>
       </b-row>
     </b-container>
-    <div class="intro-lead-in">Welcome to the Cyborg Website</div>
-    <div class="intro-heading text-uppercase">The Cyborg v4.0</div>
+    <welcomeFooter></welcomeFooter>
   </div>
 </template>
 <script>
@@ -39,6 +38,7 @@ import commandTool from "../components/commandTool";
 import emotionCards from "../components/emotionCards";
 import ariaCards from "../components/ariaCards";
 import etcCards from "../components/etcCards";
+import welcomeFooter from "../components/home/welcomeFooter";
 export default {
   name: "Home",
   components: {
@@ -48,33 +48,17 @@ export default {
     commandTool,
     emotionCards,
     ariaCards,
-    etcCards
+    etcCards,
+    welcomeFooter
   }
 };
 </script>
 <style scoped>
-.intro-lead-in {
-  text-align: center;
-  font-size: 1.5rem;
-  font-style: italic;
-  font-family: "Droid Serif";
-}
-
-.intro-heading {
-  font-size: 30px;
-  font-weight: 700;
-  text-align: center;
-  font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
-}
 .homebg {
   background-color: #f3f3f3;
 }
 .box {
   background-color: white;
-  /* -webkit-border-radius: 0% 0% 100% 100% / 0% 0% 8px 8px; */
-  /* -webkit-box-shadow: rgba(0, 0, 0,.30) 0 2px 3px; */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); /*Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5*/
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); /* Firefox 3.5 - 3.6 */
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),

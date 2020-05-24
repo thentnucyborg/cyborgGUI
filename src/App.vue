@@ -62,8 +62,10 @@
 <script>
 import Vue from "vue";
 import ROSLIB from "roslib";
+// 
 var ros = new ROSLIB.Ros({
-  url: "ws://localhost:9090"
+  // url: "ws://localhost:9090"
+  url: "ws://cyborg.zapto.org:9090"
 });
 Object.defineProperty(Vue.prototype, "$ros", { value: ros });
 
@@ -72,6 +74,9 @@ import rosConnection from "./components/rosConnection";
 export default {
   components: {
     rosConnection
+  },
+  beforeDestroy() {
+    this.$ros.close();
   }
 };
 </script>

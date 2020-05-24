@@ -1,34 +1,15 @@
 <template>
   <div id="navigationMap" class="pb-3">
     <b-row class="my-1">
-      <b-col style="text-align: center;">
-        <b-form inline>
-          <b-button :pressed.sync="toggleInitPose" variant="primary">Toggle Initial Pose</b-button>
-          <span class="mx-1">Initial Pose:</span>
-          <strong>
-            <span id="poseToggle">{{ toggleInitPose }}</span>
-          </strong>
-        </b-form>
+      <b-col>
+        <span style="display: none;" id="poseToggle">{{ toggleInitPose }}</span>
       </b-col>
-      <b-col style="text-align: end;">
-        <span class="mx-1">x: {{ x_cord }} y: {{ y_cord }}</span>
-        <span class="mx-1">r: {{ r_red }} g: {{ g_green }} b: {{ b_blue }}</span>
-      </b-col>
+      <b-col style="text-align: end;"></b-col>
     </b-row>
-    <div id="mapDiv" align-h="center"></div>
-    <b-row>
-      <b-col style="text-align: center;">
-        <b-form inline>
-          <b-button variant="success" v-on:click="setMotors('ON')">MOTORS ON</b-button>
-          <b-button variant="danger" v-on:click="setMotors('OFF')" class="ml-1">MOTORS OFF</b-button>
-          <span class="mx-1">Motors:</span>
-          <strong>
-            <span v-if="toggleMotors">ON</span>
-            <span v-else>OFF</span>
-          </strong>
-        </b-form>
-      </b-col>
-    </b-row>
+    <b-form-group class="txtcenter mb-0">
+      <label for="mapDiv"><strong>Map</strong></label>
+      <div id="mapDiv" align-h="center"></div>
+    </b-form-group>
   </div>
 </template>
 
@@ -39,11 +20,6 @@ export default {
   data() {
     return {
       toggleInitPose: false,
-      x_cord: 0,
-      y_cord: 0,
-      r_red: 0,
-      g_green: 0,
-      b_blue: 0,
       toggleMotors: "-"
     };
   },
@@ -79,10 +55,8 @@ export default {
     }
   },
   mounted() {
-    var self = this;
-
-    var canvasWidth = 620;
-    var canvasHeight = 620;
+    var canvasWidth = 500;
+    var canvasHeight = 400;
 
     /* eslint-disable no-unused-vars, no-undef */
     // Create the main viewer.
@@ -99,19 +73,7 @@ export default {
       serverName: "/move_base",
       image: "../img/pioneerlxmodel.png"
     });
-    var canvas = document.querySelector("#mapDiv canvas");
     /* eslint-enable no-unused-vars, no-undef */
-    var stage = viewer.scene;
-    stage.addEventListener("stagemousemove", function(event) {
-      self.x_cord = Math.round(event.stageX);
-      self.y_cord = Math.round(event.stageY);
-
-      var ctx = canvas.getContext("2d");
-      var data = ctx.getImageData(event.stageX, event.stageY, 1, 1).data;
-      self.r_red = data[0];
-      self.g_green = data[1];
-      self.b_blue = data[2];
-    });
   }
 };
 </script>

@@ -1,5 +1,51 @@
 <template>
-  <div class="ManualControl">
-    <h1>This is the ManualControl page</h1>
+  <div id="ManualControl" class="homebg">
+    <b-container style="max-width: 1400px">
+      <b-row align-h="center">
+        <b-col class="m-3 box txtcenter">
+          <teleop></teleop>
+        </b-col>
+        <b-col class="m-3 box">
+          <displayMap></displayMap>
+          <debugConsole numRows="13"></debugConsole>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
+
+<script>
+import teleop from "../components/manualcontrol/teleop";
+import displayMap from "../components/manualcontrol/displayMap";
+import debugConsole from "../components/debugConsole";
+
+export default {
+  name: "ManualControl",
+  components: {
+    teleop,
+    displayMap,
+    debugConsole
+  }
+};
+</script>
+<style scoped>
+.homebg {
+  background-color: #f3f3f3;
+}
+.box {
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); /*Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5*/
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); /* Firefox 3.5 - 3.6 */
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.box:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+</style>
+
+
+
+

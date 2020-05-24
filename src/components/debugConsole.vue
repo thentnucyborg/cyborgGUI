@@ -6,7 +6,7 @@
         contenteditable="true"
         class="form-control"
         id="formControlTextarea1"
-        rows="26"
+        :rows="numRows"
         spellcheck="false"
         readonly
         disabled
@@ -20,6 +20,9 @@
 import ROSLIB from "roslib";
 export default {
   name: "debugConsole",
+  props: {
+    numRows: String
+  },
   created() {
     this.rosOutTopic = new ROSLIB.Topic({
       ros: this.$ros,

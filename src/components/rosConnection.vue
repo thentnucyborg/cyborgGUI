@@ -52,6 +52,7 @@ export default {
     reCon: function() {
       this.$ros.close();
       this.$ros.connect("ws://localhost:9090");
+      // this.$ros.connect("ws://cyborg.zapto.org:9090");
     }
   },
   mounted() {
