@@ -69,7 +69,7 @@ var ros = new ROSLIB.Ros({
 });
 Object.defineProperty(Vue.prototype, "$ros", { value: ros });
 
-import rosConnection from "./components/rosConnection";
+import rosConnection from "./components/shared/rosConnection";
 
 export default {
   components: {

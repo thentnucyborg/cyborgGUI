@@ -31,14 +31,14 @@
   </div>
 </template>
 <script>
-import modeButtons from "../components/modeButtons";
-import SMACHStateCards from "../components/SMACHStateCards";
-import debugConsole from "../components/debugConsole";
-import commandTool from "../components/commandTool";
-import emotionCards from "../components/emotionCards";
-import ariaCards from "../components/ariaCards";
-import etcCards from "../components/etcCards";
+import modeButtons from "../components/home/modeButtons";
+import SMACHStateCards from "../components/home/SMACHStateCards";
+import commandTool from "../components/home/commandTool";
+import emotionCards from "../components/home/emotionCards";
+import ariaCards from "../components/home/ariaCards";
+import etcCards from "../components/home/etcCards";
 import welcomeFooter from "../components/home/welcomeFooter";
+import debugConsole from "../components/shared/debugConsole";
 export default {
   name: "Home",
   components: {

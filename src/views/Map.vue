@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import debugConsole from "../components/debugConsole";
-import navigationMap from "../components/navigationMap";
+import navigationMap from "../components/map/navigationMap";
+import debugConsole from "../components/shared/debugConsole";
 // import ROSLIB from "roslib";
 
 export default {

@@ -17,7 +17,7 @@
 <script>
 import teleop from "../components/manualcontrol/teleop";
 import displayMap from "../components/manualcontrol/displayMap";
-import debugConsole from "../components/debugConsole";
+import debugConsole from "../components/shared/debugConsole";
 
 export default {
   name: "ManualControl",
