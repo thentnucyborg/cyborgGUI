@@ -26,6 +26,10 @@
 </template>
 
 <style>
+.justifycenter {
+  justify-content: center;
+  align-items: center;
+}
 ::selection {
   background: #fed136;
   text-shadow: none;

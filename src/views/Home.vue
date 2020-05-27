@@ -2,12 +2,12 @@
   <div id="home" class="homebg">
     <b-container>
       <b-row align-h="center" class="pt-3">
-        <b-col class="box mr-2">
+        <b-col lg="" class="box m-2">
           <b-row>
-            <b-col class="m-2 box2 d-flex align-items-center justify-content-center">
+            <b-col class="m-2 box2 d-flex justifycenter">
               <modeButtons></modeButtons>
             </b-col>
-            <b-col class="m-2 box2 d-flex align-items-center justify-content-center">
+            <b-col class="m-2 box2 d-flex justifycenter">
               <SMACHStateCards></SMACHStateCards>
             </b-col>
           </b-row>
@@ -15,14 +15,14 @@
             <b-col class="m-2 box2">
               <commandTool></commandTool>
             </b-col>
-            <b-col class="m-2 box2 d-flex flex-column align-items-center justify-content-center">
+            <b-col class="m-2 box2 d-flex flex-column justifycenter">
                 <emotionCards></emotionCards>
                 <ariaCards></ariaCards>
                 <etcCards></etcCards>
             </b-col>
           </b-row>
         </b-col>
-        <b-col class="box ml-2">
+        <b-col lg="" class="box m-2">
           <debugConsole numRows="26"></debugConsole>
         </b-col>
       </b-row>

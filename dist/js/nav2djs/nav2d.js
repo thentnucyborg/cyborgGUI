@@ -357,14 +357,17 @@ NAV2D.Navigator = function(options) {
       }
     };
     this.rootObject.addEventListener("stagemousedown", function(event) {
+      event.preventDefault();
       mouseEventHandler(event, "down", mapClick);
     });
 
     this.rootObject.addEventListener("stagemousemove", function(event) {
+      event.preventDefault();
       mouseEventHandler(event, "move", mapClick);
     });
 
     this.rootObject.addEventListener("stagemouseup", function(event) {
+      event.preventDefault();
       mouseEventHandler(event, "up", mapClick);
     });
   }
