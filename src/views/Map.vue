@@ -27,7 +27,8 @@ export default {
 };
 </script>
 <style scoped>
-.canvas {
+/* .canvas {
+  -o-user-select: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -36,7 +37,7 @@ export default {
   user-select: none;
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-}
+} */
 .homebg {
   background-color: #f3f3f3;
 }

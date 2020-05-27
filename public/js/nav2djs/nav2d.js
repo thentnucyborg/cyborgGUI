@@ -356,6 +356,7 @@ NAV2D.Navigator = function(options) {
         }
       }
     };
+    
     this.rootObject.addEventListener("stagemousedown", function(event) {
       event.preventDefault();
       mouseEventHandler(event, "down", mapClick);
