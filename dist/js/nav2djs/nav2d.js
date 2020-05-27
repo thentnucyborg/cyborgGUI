@@ -356,25 +356,11 @@ NAV2D.Navigator = function(options) {
         }
       }
     };
-    $("#mapDiv canvas").bind('stagemousedown touchstart',function(event) {
-      event.preventDefault();
-      mouseEventHandler(event, "down", mapClick);
-    });
-
-    $("#mapDiv canvas").bind('stagemousemove touchmove',function(event) {
-      event.preventDefault();
-      mouseEventHandler(event, "down", mapClick);
-    });
-
-    $("#mapDiv canvas").bind('stagemouseup touchend',function(event) {
-      event.preventDefault();
-      mouseEventHandler(event, "down", mapClick);
-    });
     
-    // this.rootObject.addEventListener("stagemousedown", function(event) {
-    //   event.preventDefault();
-    //   mouseEventHandler(event, "down", mapClick);
-    // });
+    this.rootObject.addEventListener("stagemousedown", function(event) {
+      event.preventDefault();
+      mouseEventHandler(event, "down", mapClick);
+    });
 
     this.rootObject.addEventListener("stagemousemove", function(event) {
       event.preventDefault();

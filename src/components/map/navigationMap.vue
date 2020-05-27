@@ -15,7 +15,7 @@
         <span class="mx-1">r: {{ r_red }} g: {{ g_green }} b: {{ b_blue }}</span>
       </b-col>
     </b-row>
-    <div id="mapDiv" align-h="center"></div>
+    <div id="mapDiv" class="unselectable" align-h="center"></div>
     <b-row>
       <b-col style="text-align: center;">
         <b-form inline>
@@ -116,6 +116,17 @@ export default {
 };
 </script>
 <style scoped>
+.unselectable {
+  -o-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
 .homebg {
   background-color: #f3f3f3;
 }
