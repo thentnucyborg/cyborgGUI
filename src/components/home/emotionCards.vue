@@ -57,7 +57,7 @@ export default {
 <style>
 .card {
   font-size: 0.95rem;
-  width: 116px;
+  width: 112px;
   height: fit-content;
 }
 .card-header {
