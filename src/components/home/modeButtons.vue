@@ -52,7 +52,7 @@ export default {
 
 <style>
 .lgButton {
-  width: 112px;
+  width: 114px;
   height: 76px;
   font-size: 0.85rem !important;
 }
