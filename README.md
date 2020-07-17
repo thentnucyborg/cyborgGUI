@@ -4,15 +4,17 @@ This repository contains the CyborgGUI source code. The CyborgGUI is a web app d
 
 
 ## Project setup
+Clone repository.
 ```
-clone repo
 npm install
 ```
-### Run Vue UI
-The UI is intuitive to use to serve, build and lint the project.
+### Run Vue UI (PREFERRED)
+The UI is intuitive to use and can serve, build and lint the project.
 ```
 vue ui --dev
 ```
+
+Manually:
 ### Compiles and hot-reloads for development
 ```
 npm run serve
