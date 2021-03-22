@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <b-navbar class="p-0" toggleable="md" type="light">
+      <b-navbar class="p-1" toggleable="md" type="light">
         <b-col cols="4">
           <rosConnection class="float-left"></rosConnection>
         </b-col>
